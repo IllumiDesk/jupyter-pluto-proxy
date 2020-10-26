@@ -2,8 +2,6 @@
 
 This package was built using the [`jupyter-server-proxy` cookiecutter template](https://github.com/illumidesk/cookiecutter-jupyter-server-proxy).
 
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/illumidesk/jupyter-pluto-proxy/main?urlpath=pluto)
-
 ## Requirements
 
 - [Python 3.6+](https://www.python.org/downloads/)
@@ -62,6 +60,7 @@ jupyter lab build
 ## Credits
 
 - [`jupyter-server-proxy`](https://github.com/jupyterhub/jupyter-server-proxy)
+- [`Pluto.jl](https://github.com/fonsp/Pluto.jl)
 
 ## License
 
