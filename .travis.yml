@@ -1,0 +1,22 @@
+---
+    dist: bionic
+    language: python
+    python:
+      - 3.8
+    sudo: required
+    services:
+      - docker
+    
+    jobs:
+      include:
+        - stage: full-test
+          install:
+            - pip install --upgrade pip
+            - make venv
+          script:
+            - set -e
+            - make test
+    
+    stages:
+      - name: full-test
+        if: branch = main
