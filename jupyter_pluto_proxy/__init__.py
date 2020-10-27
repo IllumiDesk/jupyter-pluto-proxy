@@ -2,12 +2,15 @@ import os
 import shutil
 import logging
 
+from typing import Any
+from typing import Dict
+
 
 logger = logging.getLogger(__name__)
 logger.setLevel('INFO')
 
 
-def setup_pluto():
+def setup_pluto() -> Dict[str, Any]:
     """Setup commands and icon paths and return a dictionary compatible
     with jupyter-server-proxy.
     """
@@ -16,20 +19,8 @@ def setup_pluto():
             os.path.dirname(os.path.abspath(__file__)), 'icons', 'pluto.svg'
     )
 
-    # Make sure executable is in $PATH
-    def _get_pluto_command(port):
-        # Create pluto working directory
-        home_dir = os.environ.get('HOME') or '/home/jovyan'
-        working_dir = f'{home_dir}/pluto'
-        if not os.path.exists(working_dir):
-            os.makedirs(working_dir)
-            logger.info("Created directory %s" % working_dir)
-        else:    
-            logger.info("Directory %s already exists" % working_dir)
-        return ["julia", "-e", "import Pkg; Pkg.add(Pkg.PackageSpec(;name=\"Pluto\", rev=\"c3e4b0f8a\")); import Pluto; Pluto.run(\"0.0.0.0\", " + str(port) + ")"]
-    
     return {
-        'command': '_get_pluto_command',
+        "command": ["julia", "--optimize=0", "-e", "import Pluto; Pluto.run(host=\"0.0.0.0\", port={port}, launch_browser=false, require_secret_for_open_links=false, require_secret_for_access=false)"],
         'timeout': 20,
         'new_browser_tab': True,
         'launcher_entry': {
