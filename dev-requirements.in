@@ -1,0 +1,7 @@
+black
+docker
+docker-compose
+flake8
+git+https://github.com/jupyterhub/repo2docker@30ef2209cc767826e2647886854fac12469a06c1
+pip-tools
+pytest
