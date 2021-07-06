@@ -1,7 +1,6 @@
-black
-docker
-docker-compose
-flake8
-git+https://github.com/jupyterhub/repo2docker@30ef2209cc767826e2647886854fac12469a06c1
-pip-tools
-pytest
+black==20.8b1
+docker[ssh]==4.3.1 
+docker-compose==1.27.4
+flake8==3.8.4
+pip-tools==5.3.1
+pytest==6.1.1
