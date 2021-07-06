@@ -8,6 +8,8 @@ Take it for a spin with Binder:
 
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/illumidesk/jupyter-pluto-proxy/main?urlpath=pluto)
 
+Then, from the the Jupyter Lab Launcher --> Pluto. Alternatively, from Jupyter Notebook Classic (change the path in your browser to use `/tree`) click on `New` --> `Pluto Notebook`.
+
 ## Requirements
 
 - [Python 3.6+](https://www.python.org/downloads/)
