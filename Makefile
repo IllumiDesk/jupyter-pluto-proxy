@@ -25,7 +25,7 @@ help:
 	@grep -E '^[a-zA-Z0-9_%/-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
 
 build: venv ## build the latest image for a stack
-	${VENV_BIN}/jupyter-repo2docker --user-id 1000 --user-name jovyan --image-name $(OWNER)/pluto:$(TAG) .
+	@docker build -t $(OWNER)/jupyter-pluto-notebook:$(TAG) .
 
 clean-all: ## remove built images and running containers (including those w/ exit status)
 	@docker rm -f $(shell docker ps -aq)
@@ -35,7 +35,7 @@ lint: venv ## lint the dockerfile(s)
 	${VENV_BIN}/flake8
 	@echo "Linting with flake8 done!"
 	@echo "Applying black updates to test files..."
-	${VENV_BIN}/black .
+	${VENV_BIN}/black jupyter_pluto_proxy
 	@echo "Source formatting with black done!"
 
 venv: ## install hadolint create virtual environment

@@ -17,8 +17,8 @@ setuptools.setup(
     long_description=long_description,
     long_description_content_type='text/markdown',
     packages=setuptools.find_packages(),
-	keywords=['jupyter', 'Pluto Notebook', 'jupyterhub'],
-	classifiers=['Framework :: Jupyter'],
+    keywords=['jupyter notebook', 'pluto notebook', 'jupyterhub', 'jupyterlab', 'jupyter-server-proxy'],
+    classifiers=['Framework :: Jupyter'],
     install_requires=[
         'jupyter-server-proxy>=1.5.0'
     ],
