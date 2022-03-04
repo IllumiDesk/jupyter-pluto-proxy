@@ -48,7 +48,7 @@ pip install -e .
 ## Credits
 
 - [`jupyter-server-proxy`](https://github.com/jupyterhub/jupyter-server-proxy)
-- [`Pluto.jl](https://github.com/fonsp/Pluto.jl)
+- [`Pluto.jl`](https://github.com/fonsp/Pluto.jl)
 
 ## License
 
