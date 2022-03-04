@@ -6,17 +6,13 @@ RUN mkdir "${HOME}/app"
 
 WORKDIR "${HOME}/app"
 
+RUN julia -e 'using Pkg; Pkg.update(); \
+    Pkg.add(PackageSpec.(["CSV", "Images", "Plots", "Pluto", "Statistics"]))'
+
 COPY . "${HOME}/app"
 
 RUN python3 -m pip install -U pip \
  && python3 -m pip install -e .
-
-RUN julia -e 'import Pkg; Pkg.update()' && \
-    julia -e 'import Pkg; Pkg.add("CSV")' && \
-    julia -e 'import Pkg; Pkg.add("Images")' && \
-    julia -e 'import Pkg; Pkg.add("Plots")' && \
-    julia -e 'import Pkg; Pkg.add("Pluto")' && \
-    julia -e 'import Pkg; Pkg.add("Statistics")'
 
 USER root
 
